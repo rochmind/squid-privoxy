@@ -7,6 +7,6 @@ RUN apk --no-cache add squid privoxy ca-certificates && \
 
 COPY service /opt/
 
-EXPOSE 3128 3129
+EXPOSE 3128 3129 8118 8888 8889
 
 CMD ["/bin/sh", "/opt/start.sh"]

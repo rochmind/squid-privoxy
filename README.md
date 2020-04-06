@@ -6,7 +6,7 @@ A docker image with Tor and Privoxy based on Alpine Linux. Now it has Squid as w
 
 You can change squid settings by mount a custom.conf into /opt/squid/custom.conf:
 ```
-docker run -d -v $PWD/custom.conf:/opt/squid/custom.conf -p 3128:3128 -p 3129:3129 -p synopsis8/squi-privoxy
+docker run -d -v %PATHTOCACHEDIR%:/var/cache/squid -p 3128:3128 -p 3129:3129 synopsis8/squid-privoxy
 ```
 
 The image has an URL rewrite script to be able to modify request URLs. You can configure it by mounting a file into /opt/squid/rewriter.conf like this:
