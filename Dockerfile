@@ -1,9 +1,12 @@
-FROM alpine:latest
+FROM arm32v7/alpine:latest
 
-RUN apk --no-cache add squid privoxy ca-certificates && \
+RUN apk --no-cache --update add privoxy squid wget ca-certificates && \
     ln -sf /dev/stdout /var/log/privoxy/logfile && \
-    chown -R squid:squid /var/cache/squid && \
-    chown -R squid:squid /var/log/squid
+    mkdir -p /var/cache/squid /var/log/squid
+
+RUN chown -R squid:squid /var/cache/squid && \
+    chown -R squid:squid /var/log/squid && \
+    chown privoxy:privoxy /etc/privoxy/*
 
 COPY service /opt/
 

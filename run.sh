@@ -1,7 +1,7 @@
 #!/bin/bash
 
-docker run --rm -ti --name tor \
-    --rm \
+docker run --name squid-privoxy \
     -p 3128:3128 \
     -p 3129:3129 \
-    synopsis8/squid-privoxy
+    -p 8118:8118 \
+    synopsis8/squid-privoxy:arm32v7
