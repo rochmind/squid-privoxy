@@ -1,6 +1,6 @@
 FROM arm32v7/alpine:latest
 
-RUN apk --no-cache --update add privoxy squid wget ca-certificates && \
+RUN apk --no-cache --update add privoxy squid ca-certificates && \
     ln -sf /dev/stdout /var/log/privoxy/logfile && \
     mkdir -p /var/cache/squid /var/log/squid
 
